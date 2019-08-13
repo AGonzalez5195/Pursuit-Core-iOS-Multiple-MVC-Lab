@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ZooAnimal {
     let name: String
@@ -127,6 +128,18 @@ Zebras are equids – members of the horse family (Equidae) and are medium sized
 Zebras were the second species to diverge from the earliest proto-horses, after the asses, around 4 million years ago. The Grevy’s zebra is believed to have been the first zebra species to emerge.
 """)
     ]
+
+    static let Mammal = ZooAnimal.zooAnimals.filter({$0.classification == "Mammal"})
+    static let Reptile = ZooAnimal.zooAnimals.filter({$0.classification == "Reptile"})
+    static let Bird = ZooAnimal.zooAnimals.filter({$0.classification == "Bird"})
+    static let Insect = ZooAnimal.zooAnimals.filter({$0.classification == "Insect"})
+    static let Amphibian = ZooAnimal.zooAnimals.filter({$0.classification == "Amphibian"})
+}
+extension ZooAnimal: Imageable {
+    var imageName: String {return String(imageNumber)}
+    func getImage() -> UIImage {
+        return UIImage(named: imageName)!
+    }
 }
 
 
