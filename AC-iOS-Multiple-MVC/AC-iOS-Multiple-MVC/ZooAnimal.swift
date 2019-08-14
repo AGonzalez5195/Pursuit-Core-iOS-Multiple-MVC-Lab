@@ -33,7 +33,7 @@ The Aardvark is also not related to the South American anteater, despite sharing
         ZooAnimal(name: "African Elephant", imageNumber: 2, origin: "Africa", classification: "Mammal", info: """
 African Elephants The African elephant, (Loxodonta Africana), is also known as the ‘African Bush Elephant’. Both the African Bush Elephant and the African Forest Elephant have usually been classified as a single species, known simply as the African Elephant. However, the African Forest Elephant resides in the Rainforests and the African Bush Elephant lives in the savannas, hence sometimes being called the ‘Savanna Elephant’.
 """),
-        ZooAnimal(name: "Anaconda Snake", imageNumber: 3, origin: "South America", classification: "Amphibian", info: """
+        ZooAnimal(name: "Anaconda Snake", imageNumber: 3, origin: "South America", classification: "Reptile", info: """
 Anacondas are four species of aquatic boa inhabiting the swamps and rivers of the dense forests of tropical South America. The Yellow Anaconda can be found as far south as Argentina. It is unclear how the name originated so far from the snakes native habitat. It is likely due to its vague similarity to the large Asian pythons.
 
 Local names for the Anaconda in South America include the Spanish term ‘matatoro’, meaning ‘bull killer’, and the Native American terms ‘sucuri’ and ‘yakumama’. Anacondas as members of the boa family are sometimes called ‘water boas’. The Latin name for Anaconda is ‘Eunectes’ meaning ‘good swimmer’.
@@ -128,13 +128,18 @@ Zebras are equids – members of the horse family (Equidae) and are medium sized
 Zebras were the second species to diverge from the earliest proto-horses, after the asses, around 4 million years ago. The Grevy’s zebra is believed to have been the first zebra species to emerge.
 """)
     ]
-
+    
     static let Mammal = ZooAnimal.zooAnimals.filter({$0.classification == "Mammal"})
     static let Reptile = ZooAnimal.zooAnimals.filter({$0.classification == "Reptile"})
     static let Bird = ZooAnimal.zooAnimals.filter({$0.classification == "Bird"})
     static let Insect = ZooAnimal.zooAnimals.filter({$0.classification == "Insect"})
-    static let Amphibian = ZooAnimal.zooAnimals.filter({$0.classification == "Amphibian"})
+   
+    
+    static let allAnimals = [ZooAnimal.Mammal, ZooAnimal.Reptile, ZooAnimal.Insect, ZooAnimal.Bird]
 }
+
+
+
 extension ZooAnimal: Imageable {
     var imageName: String {return String(imageNumber)}
     func getImage() -> UIImage {
